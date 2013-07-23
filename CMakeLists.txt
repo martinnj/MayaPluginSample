@@ -16,7 +16,7 @@ SET(MAYA_LIBRARY_DIR "${MAYA_DIRECTORY}/lib")
 # Add the source files here
 SET(SOURCE_FILES
   pluginCmd.cpp
-  pluginCmd.h 
+  pluginCmd.h
 )
 
 source_group("" FILES ${SOURCE_FILES})
