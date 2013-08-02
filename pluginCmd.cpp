@@ -14,37 +14,37 @@
 
 // Constructor for the command object.
 commandExample::commandExample() {
-    cout << "In commandExample::commandExample()\n";
+    cout << "In commandExample::commandExample()" << endl;
 }
 // Destructor for the command object.
 commandExample::~commandExample() {
-    cout << "In commandExample::~commandExample()\n";
+    cout << "In commandExample::~commandExample()" << endl;
 }
 // The actual command/work to be performed.
 MStatus commandExample::doIt( const MArgList& ) {
-    cout << "In commandExample::doIt()\n";
+    cout << "In commandExample::doIt()" << endl;
     return MS::kSuccess;
 }
 // Function that is called when Maya asks for a "redo".
 MStatus commandExample::redoIt() {
-    cout << "In commandExample::redoIt()\n";
+    cout << "In commandExample::redoIt()" << endl;
     return MS::kSuccess;
 }
 // Function that is called when Maya asks for a "undo"
 MStatus commandExample::undoIt() {
-    cout << "In commandExample::undoIt()\n";
+    cout << "In commandExample::undoIt()" << endl;
     return MS::kSuccess;
 }
 // Function that tells Maya if the command can be undone/redone,
 // if it returns false, the destructor will be called right after this.
 bool commandExample::isUndoable() const {
-    cout << "In commandExample::isUndoable()\n";
+    cout << "In commandExample::isUndoable()" << endl;
     return true;
 }
 
 // The creator is called when the command is invoked and sets up the command object.
 void* commandExample::creator() {
-    cout << "In commandExample::creator()\n";
+    cout << "In commandExample::creator()" << endl;
     return new commandExample();
 }
 
@@ -55,7 +55,7 @@ MStatus initializePlugin( MObject obj ) {
     plugin.registerCommand( "commandExample", commandExample::creator );
 
     // Print to show plugin command was registered.
-    cout << "In initializePlugin()\n";
+    cout << "In initializePlugin()" << endl;
 
     return MS::kSuccess;
 }
@@ -66,6 +66,6 @@ MStatus uninitializePlugin( MObject obj )
     plugin.deregisterCommand( "commandExample" );
 
     // Print to show the plugin was unloaded.
-    cout << "In uninitializePlugin()\n";
+    cout << "In uninitializePlugin()" << endl;
     return MS::kSuccess;
 }
