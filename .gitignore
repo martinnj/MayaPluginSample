@@ -8,6 +8,7 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
+*.mll
 
 # Compiled Static libraries
 *.lai
@@ -25,6 +26,9 @@
 *.opensdf
 *.sln
 *.suo
+*.exp
+*.ilk
+*.pdb
 
 # Random gunk from cmake and other stuff
 *CMakeFiles*
@@ -32,3 +36,4 @@
 CMakeCache.txt
 *.log
 *.tlog
+*.cache
