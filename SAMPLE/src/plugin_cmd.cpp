@@ -10,7 +10,7 @@
  */
 
 // Include the header for the file.
-#include "pluginCmd.h"
+#include <plugin_cmd.h>
 
 // Constructor for the command object.
 commandExample::commandExample() {
@@ -51,7 +51,7 @@ void* commandExample::creator() {
 // Gets called when the plugin is loaded into Maya.
 MStatus initializePlugin( MObject obj ) {
     // Set plugin registration info: Author, plugin-version and Maya version needed.
-    MFnPlugin plugin( obj, "Martin Jørgensen", "1.0", "Any" );
+    MFnPlugin plugin( obj, "Martin J¿rgensen", "1.0", "Any" );
     plugin.registerCommand( "commandExample", commandExample::creator );
 
     // Print to show plugin command was registered.
