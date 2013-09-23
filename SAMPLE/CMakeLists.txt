@@ -1,21 +1,22 @@
 #------------------------------------------------------------
-SET(Boost_USE_STATIC_LIBS ON)
-SET(Boost_ADDITIONAL_VERSIONS "1.42" "1.42.0" "1.43" "1.43.0" "1.44" "1.44.0" "1.45" "1.45.0" "1.46" "1.46.0" "1.46.1")
-
-#------------------------------------------------------------
 SET(
   CMAKE_MODULE_PATH 
   ${PROJECT_SOURCE_DIR}/cmake  
   ${CMAKE_MODULE_PATH}
   )
 
+SET(CMAKE_FIND_FRAMEWORK "LAST")
 FIND_PACKAGE(MAYA)
+FIND_PACKAGE(OPENGL)
+
+#SET(DSC_PROJECT_DIR "C:/dsclibs/DSC/CODE/DSC_PROJECT")
+#FIND_PACKAGE(DSC_PROJECT)
 #------------------------------------------------------------
 SET(MAYA_PLUGIN_NAME "MayaPluginSample")
 
 INCLUDE_DIRECTORIES( 
   ${PROJECT_SOURCE_DIR}/SAMPLE/include
-  ${MAYA_INCLUDE_DIRS}
+  ${MAYA_INCLUDE_DIR}
 )
 
 FILE(
@@ -37,12 +38,15 @@ ADD_LIBRARY(
   ${MAYA_PLUGIN_HEADERS}
   )
 
+# MESSAGE(  ${MAYA_OpenMaya_LIBRARY} )
+
 TARGET_LINK_LIBRARIES(
   ${MAYA_PLUGIN_NAME}
   ${MAYA_Foundation_LIBRARY}
   ${MAYA_OpenMaya_LIBRARY}
-  ${MAYA_MayaAnim_LIBRARY}
-  ${MAYA_MayaUI_LIBRARY}
+  ${MAYA_OpenMayaUI_LIBRARY}
+  ${OPENGL_gl_LIBRARY}
+  ${OPENGL_glu_LIBRARY}
   )
 
 #--------------------------------------------------------
